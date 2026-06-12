@@ -224,9 +224,7 @@ Configuration is resolved in the following priority order (highest to lowest):
 
 ## Security Considerations
 
-**Assumptions documented during analysis:**
-
-- The JWT signing key is hardcoded in source code. In production, this should be loaded from environment variables or a secrets manager.
+- The JWT signing key is externalized via `JWT_SECRET` environment variable or `Jwt:Secret` configuration ([`Program.cs`](../AiTaskApi/Program.cs:71-74)).
 - Passwords are hashed using BCrypt.Net-Next (industry standard).
 - CORS is configured for specific localhost origins; adjust for production frontend domains.
 - HTTPS redirection is enabled by default.

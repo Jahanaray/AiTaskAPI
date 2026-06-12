@@ -63,26 +63,34 @@ The architecture consists of three main projects:
 
 ### Configuration
 
-1. Edit [`AiTaskApi/appsettings.json`](AiTaskApi/appsettings.json):
-   ```json
-   {
-     "ConnectionStrings": {
-       "Default": "Host=localhost;Database=aitaskapi;Username=postgres;Password=yourpassword"
-     }
-   }
-   ```
+1. Edit [`AiTaskApi/appsettings.Development.json`](AiTaskApi/appsettings.Development.json) or set environment variables:
+    ```json
+    {
+      "ConnectionStrings": {
+        "Default": "Host=localhost;Database=aitaskapi;Username=postgres;Password=yourpassword"
+      }
+    }
+    ```
 
-2. Set environment variables (optional overrides):
-   - `LLM_SERVER` - Ollama server URL (default: `http://192.168.10.7:11434`)
-   - `OLLAMA_MODEL` - LLM model name (default: `gemma4:e4b`)
-   - `ConnectionStrings__Default` - Database connection string override
+2. Set the JWT secret (required):
+    ```bash
+    # PowerShell
+    $env:JWT_SECRET="your-super-secret-jwt-key-minimum-32-chars-long"
+
+    # Bash
+    export JWT_SECRET="your-super-secret-jwt-key-minimum-32-chars-long"
+    ```
+
+3. Optional environment variables:
+    - `LLM_SERVER` - Ollama server URL (default: `http://localhost:11434`)
+    - `OLLAMA_MODEL` - LLM model name (default: `gemma4:e4b`)
+    - `ConnectionStrings__Default` - Database connection string override
 
 ### Run the API
 
 ```bash
 cd AiTaskApi
 dotnet restore
-dotnet ef database update
 dotnet run
 ```
 
@@ -120,4 +128,4 @@ dotnet run
 
 ## License
 
-Private / Internal use.
+This project is licensed under the [MIT License](../../LICENSE).

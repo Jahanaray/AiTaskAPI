@@ -46,6 +46,8 @@ graph LR
 │   ├── configuration.md          # Configuration options reference
 │   ├── usage.md                  # User workflow guide
 │   ├── api-reference.md          # Complete API documentation
+│   ├── deployment.md             # Deployment guide (Docker, bare-metal, cloud)
+│   ├── frontend.md               # Frontend application documentation
 │   ├── troubleshooting.md        # Common issues and fixes
 │   ├── development.md            # Developer onboarding guide
 │   └── faq.md                    # Frequently asked questions
@@ -58,7 +60,7 @@ graph LR
 │   ├── src/                      # Application source code
 │   ├── public/                   # Static assets
 │   └── Dockerfile                # Frontend container build
-└── docker/                       # Pre-built Docker images
+└── .github/                      # GitHub templates (issues, PRs)
 ```
 
 ## Quick Start
@@ -78,17 +80,20 @@ graph LR
 # 1. Start PostgreSQL (via Docker or native install)
 docker run --name aitaskapi-db -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=aitaskapi -p 5432:5432 -d postgres:16
 
-# 2. Start the API
+# 2. Set JWT secret (required)
+$env:JWT_SECRET="your-super-secret-jwt-key-minimum-32-chars-long"
+
+# 3. Start the API
 cd backend/AiTaskApi
 dotnet restore
 dotnet run
 
-# 3. In another terminal, start the Worker
+# 4. In another terminal, start the Worker
 cd ../AiTaskApi.Worker
 dotnet restore
 dotnet run
 
-# 4. Start the frontend (in another terminal)
+# 5. In another terminal, start the frontend
 cd ../../frontend
 npm install
 npm run dev
@@ -101,6 +106,10 @@ npm run dev
 ### Option B: Docker Compose (All-in-One)
 
 ```bash
+# 1. Set JWT secret
+$env:JWT_SECRET="your-super-secret-jwt-key-minimum-32-chars-long"
+
+# 2. Start all services
 docker-compose up --build
 ```
 
@@ -131,6 +140,8 @@ docker-compose up --build
 | [Configuration](docs/configuration.md) | All configuration options and environment variables |
 | [Usage](docs/usage.md) | User workflows and common operations |
 | [API Reference](docs/api-reference.md) | Complete endpoint documentation with examples |
+| [Deployment](docs/deployment.md) | Docker, bare-metal, and cloud deployment guides |
+| [Frontend](docs/frontend.md) | Frontend application structure and configuration |
 | [Troubleshooting](docs/troubleshooting.md) | Common issues and solutions |
 | [Development](docs/development.md) | Developer onboarding and codebase conventions |
 | [FAQ](docs/faq.md) | Frequently asked questions |

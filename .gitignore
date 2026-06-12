@@ -5,3 +5,30 @@
 /docker
 /.vs
 /.vscode
+/.idea
+/bin/
+/obj/
+*.dll
+*.pdb
+*.exe
+*.user
+*.userosscache
+*.sln.docstates
+
+# Environment files (may contain secrets)
+.env
+.env.*
+!.env.example
+
+# Node modules
+frontend/node_modules/
+frontend/dist/
+
+# Coverage reports
+**/CoverageResults/
+**/*.coverage
+**/.coverage
+
+# OS files
+.DS_Store
+Thumbs.db

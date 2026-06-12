@@ -21,9 +21,8 @@ AiTaskApi is a .NET 10 backend system that combines traditional task management 
 
 ### Is this production-ready?
 
-**Assumptions documented during analysis:** The system has a functional architecture but several areas need attention before production deployment:
+The system has a functional architecture suitable for portfolio demonstration. Several areas need attention before production deployment:
 
-- JWT signing key is hardcoded (should be externalized)
 - CORS is limited to localhost origins
 - No rate limiting is configured
 - No input validation beyond basic DTO constraints
@@ -191,10 +190,10 @@ dotnet run --verbosity detailed
 
 1. Set production environment variables (connection string, LLM server, JWT secret)
 2. Build release binaries:
-   ```bash
-   dotnet publish AiTaskApi/AiTaskApi.csproj -c Release -o ./publish
-   dotnet publish AiTaskApi.Worker/AiTaskApi.Worker.csproj -c Release -o ./publish-worker
-   ```
+    ```bash
+    dotnet publish AiTaskApi/AiTaskApi.csproj -c Release -o ./publish
+    dotnet publish AiTaskApi.Worker/AiTaskApi.Worker.csproj -c Release -o ./publish-worker
+    ```
 3. Deploy to your hosting platform (Linux server, Azure, AWS, etc.)
 
 ### Can I deploy with Docker Compose?
@@ -323,19 +322,17 @@ No dedicated mobile SDK exists. The REST API can be consumed from any platform t
 | HTTPS | HTTPS redirection enabled |
 | CORS | Origin whitelist |
 | Input validation | DTO constraints |
+| JWT secret | Externalized via `JWT_SECRET` env var |
 
 ### What security improvements are recommended for production?
 
-**Assumptions documented during analysis:**
-
-1. **Externalize JWT secret** - Configure via `JWT_SECRET` environment variable (see [`backend/.env.example`](../backend/.env.example))
-2. **Add rate limiting** - No rate limiting is currently configured
-3. **Add input validation** - Use FluentValidation or similar
-4. **Add audit logging** - Track user actions for compliance
-5. **Implement token refresh** - Currently tokens expire without refresh mechanism
-6. **Add HTTPS certificates** - Use proper certificates, not development certs
-7. **Add CORS configuration management** - Make origins configurable
-8. **Add request logging** - Use Serilog or similar for production logging
+1. **Add rate limiting** - No rate limiting is currently configured
+2. **Add input validation** - Use FluentValidation or similar
+3. **Add audit logging** - Track user actions for compliance
+4. **Implement token refresh** - Currently tokens expire without refresh mechanism
+5. **Add HTTPS certificates** - Use proper certificates, not development certs
+6. **Add CORS configuration management** - Make origins configurable
+7. **Add request logging** - Use Serilog or similar for production logging
 
 ## Migration History
 

@@ -181,9 +181,7 @@ export OLLAMA_MODEL="llama3"
 
 ## Security Notes
 
-**Assumptions documented during analysis:**
-
-1. **JWT Secret:** The signing key is hardcoded. This is a security risk and should be externalized.
+1. **JWT Secret:** The signing key is externalized via `JWT_SECRET` environment variable or `Jwt:Secret` configuration ([`Program.cs`](../AiTaskApi/Program.cs:71-74)).
 2. **CORS:** Only localhost origins are allowed by default. Update for production.
 3. **HTTPS:** HTTPS redirection is enabled. Ensure valid certificates in production.
 4. **BCrypt:** Password hashing uses BCrypt.Net-Next with default cost factor (industry standard).

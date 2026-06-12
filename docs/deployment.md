@@ -63,6 +63,7 @@ services:
       - db
     environment:
       ConnectionStrings__Default: Host=db;Port=5432;Database=${DB_NAME:-aitaskapi};Username=${DB_USER:-postgres};Password=${DB_PASSWORD:-changeme}
+      JWT_SECRET: ${JWT_SECRET:-change-me-jwt-secret}
       LLM_SERVER: ${LLM_SERVER:-http://ollama:11434}
       OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma4:e4b}
       ASPNETCORE_ENVIRONMENT: Production
@@ -82,6 +83,7 @@ services:
       - db
     environment:
       ConnectionStrings__Default: Host=db;Port=5432;Database=${DB_NAME:-aitaskapi};Username=${DB_USER:-postgres};Password=${DB_PASSWORD:-changeme}
+      JWT_SECRET: ${JWT_SECRET:-change-me-jwt-secret}
       LLM_SERVER: ${LLM_SERVER:-http://ollama:11434}
       OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma4:e4b}
     networks:
@@ -118,6 +120,9 @@ DB_NAME=aitaskapi
 # AI
 LLM_SERVER=http://host.docker.internal:11434
 OLLAMA_MODEL=gemma4:e4b
+
+# Security (REQUIRED)
+JWT_SECRET=your-super-secret-jwt-key-minimum-32-chars-long
 ```
 
 ### Deploy
@@ -188,6 +193,7 @@ RestartSec=10
 User=www-data
 Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment=ConnectionStrings__Default=Host=localhost;Database=aitaskapi;Username=appuser;Password=securepassword
+Environment=JWT_SECRET=your-super-secret-jwt-key-minimum-32-chars-long
 Environment=LLM_SERVER=http://localhost:11434
 Environment=OLLAMA_MODEL=gemma4:e4b
 
@@ -209,6 +215,7 @@ Restart=always
 RestartSec=10
 User=www-data
 Environment=ConnectionStrings__Default=Host=localhost;Database=aitaskapi;Username=appuser;Password=securepassword
+Environment=JWT_SECRET=your-super-secret-jwt-key-minimum-32-chars-long
 Environment=LLM_SERVER=http://localhost:11434
 
 [Install]
@@ -250,7 +257,7 @@ az group create --name aitaskapi-rg --location eastus
 az webapp create --resource-group aitaskapi-rg --name aitaskapi-api --runtime "DOTNET|10" --plan myAppServicePlan
 
 # Configure connection strings
-az webapp config appsettings set --resource-group aitaskapi-rg --name aitaskapi-api --settings ConnectionStrings__Default="Host=your-db.postgres.database.azure.com;Database=aitaskapi;Username=appuser@yourserver;Password=securepassword"
+az webapp config appsettings set --resource-group aitaskapi-rg --name aitaskapi-api --settings ConnectionStrings__Default="Host=your-db.postgres.database.azure.com;Database=aitaskapi;Username=appuser@yourserver;Password=securepassword" JWT_SECRET="your-super-secret-jwt-key-minimum-32-chars-long"
 
 # Deploy
 cd backend/AiTaskApi
@@ -316,10 +323,8 @@ sudo certbot --nginx -d your-domain.com
 
 ## Security Checklist for Production
 
-**Assumptions documented during analysis:** The following items need attention before production deployment:
-
-| Item | Current State | Action Required |
-|------|--------------|-----------------|
+| Item | Status | Notes |
+|------|--------|-------|
 | JWT signing key | Configurable via `JWT_SECRET` env var | Set before running (required) |
 | Database password | Default `postgres` | Change to strong password |
 | CORS origins | Only localhost | Add production frontend domains |
