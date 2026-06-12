@@ -1,0 +1,58 @@
+# AiTaskApi Docker Compose Configuration
+# Copy this file to docker-compose.yml and fill in your values
+
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: aitaskapi_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme}
+      POSTGRES_DB: ${DB_NAME:-aitaskapi}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: AiTaskApi/Dockerfile
+    container_name: aitaskapi_api
+    depends_on:
+      - db
+    environment:
+      ConnectionStrings__Default: Host=db;Port=5432;Database=${DB_NAME:-aitaskapi};Username=${DB_USER:-postgres};Password=${DB_PASSWORD:-changeme}
+      JWT_SECRET: ${JWT_SECRET:-change-me-jwt-secret}
+      LLM_SERVER: ${LLM_SERVER:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma4:e4b}
+    ports:
+      - "5058:8080"
+
+  worker:
+    build:
+      context: ./backend
+      dockerfile: AiTaskApi.Worker/Dockerfile
+    container_name: aitaskapi_worker
+    depends_on:
+      - db
+    environment:
+      ConnectionStrings__Default: Host=db;Port=5432;Database=${DB_NAME:-aitaskapi};Username=${DB_USER:-postgres};Password=${DB_PASSWORD:-changeme}
+      JWT_SECRET: ${JWT_SECRET:-change-me-jwt-secret}
+      LLM_SERVER: ${LLM_SERVER:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma4:e4b}
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: aitaskapi_frontend
+    depends_on:
+      - api
+    ports:
+      - "3000:80"
+
+volumes:
+  pgdata:

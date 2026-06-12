@@ -1,0 +1,35 @@
+<Solution>
+  <Folder Name="/backend/">
+    <Project Path="backend/AiTaskApi.Shared/AiTaskApi.Shared.csproj" />
+    <Project Path="backend/AiTaskApi.Tests/AiTaskApi.Tests.csproj" />
+    <Project Path="backend/AiTaskApi.Worker/AiTaskApi.Worker.csproj" />
+    <Project Path="backend/AiTaskApi/AiTaskApi.csproj" />
+  </Folder>
+  <Folder Name="/docs/">
+    <File Path="docs/api-reference.md" />
+    <File Path="docs/architecture.md" />
+    <File Path="docs/configuration.md" />
+    <File Path="docs/deployment.md" />
+    <File Path="docs/development.md" />
+    <File Path="docs/faq.md" />
+    <File Path="docs/frontend.md" />
+    <File Path="docs/installation.md" />
+    <File Path="docs/troubleshooting.md" />
+    <File Path="docs/usage.md" />
+  </Folder>
+  <Folder Name="/frontend/">
+    <File Path="../frontend/.gitignore" />
+    <File Path="../frontend/DockerFile" />
+    <File Path="../frontend/eslint.config.js" />
+    <File Path="../frontend/index.html" />
+    <File Path="../frontend/nginx.conf" />
+    <File Path="../frontend/package-lock.json" />
+    <File Path="../frontend/package.json" />
+    <File Path="../frontend/README.md" />
+    <File Path="../frontend/vite.config.js" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="../docker-compose.yml" />
+    <File Path="README.md" />
+  </Folder>
+</Solution>
