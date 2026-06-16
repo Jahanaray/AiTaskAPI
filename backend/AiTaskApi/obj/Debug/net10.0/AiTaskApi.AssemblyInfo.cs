@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AiTaskApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c75f99eded6a7b257b349c453b21d11c21cf352")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+404047ee73685aae19405b187fb7034c65479c0d")]
 [assembly: System.Reflection.AssemblyProductAttribute("AiTaskApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AiTaskApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

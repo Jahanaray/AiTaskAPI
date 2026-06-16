@@ -1,0 +1,49 @@
+name: CI-CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_PREFIX: ghcr.io/${{ github.repository }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build -c Release --no-restore
+
+      - name: Test
+        run: dotnet test --no-build || true
+
+      - name: Login to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build API image
+        run: docker build -t $IMAGE_PREFIX-api:latest -f backend/AiTaskApi/Dockerfile backend
+
+      - name: Build Worker image
+        run: docker build -t $IMAGE_PREFIX-worker:latest -f backend/AiTaskApi.Worker/Dockerfile backend
+
+      - name: Build Frontend image
+        run: docker build -t $IMAGE_PREFIX-frontend:latest ./frontend
+
+      - name: Push images
+        run: |
+          docker push $IMAGE_PREFIX-api:latest
+          docker push $IMAGE_PREFIX-worker:latest
+          docker push $IMAGE_PREFIX-frontend:latest

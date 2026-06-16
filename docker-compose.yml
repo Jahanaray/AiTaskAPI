@@ -16,7 +16,7 @@ services:
 
   api:
     build:
-      context: ./backend                # ✅ IMPORTANT (was wrong before)
+      context: ./backend                
       dockerfile: AiTaskApi/Dockerfile
     container_name: task_api
     depends_on:
