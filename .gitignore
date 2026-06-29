@@ -8,6 +8,8 @@
 /.idea
 /bin/
 /obj/
+**/bin/
+**/obj/
 *.dll
 *.pdb
 *.exe

@@ -15,6 +15,7 @@
 | Database doesn't exist | Check PostgreSQL databases | `CREATE DATABASE aitaskapi;` |
 | Wrong credentials | Verify username/password | Update connection string or reset PostgreSQL password |
 | Docker networking | Container can't reach host DB | Use `host.docker.internal` instead of `localhost` |
+| Password authentication failed for user `postgres` | Existing Docker Postgres volume was initialized with a different password | Keep `DB_PASSWORD` set to the original password, or run `docker compose down -v` to recreate the local database volume |
 
 **Debug command:**
 ```bash
