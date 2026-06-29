@@ -1,6 +1,4 @@
 @AiTaskApi_HostAddress = http://localhost:5258
 
-GET {{AiTaskApi_HostAddress}}/weatherforecast/
-Accept: application/json
 
 ###

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DiDFYOJPoJU=",
+  "dgSpecHash": "QVbZjV2YX+c=",
   "success": true,
-  "projectFilePath": "D:\\Playground\\AiTaskApi - AI\\backend\\AiTaskApi.Tests\\AiTaskApi.Tests.csproj",
+  "projectFilePath": "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi.Tests\\AiTaskApi.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pro\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
     "C:\\Users\\Pro\\.nuget\\packages\\coverlet.collector\\6.0.4\\coverlet.collector.6.0.4.nupkg.sha512",
@@ -14,7 +14,7 @@
     "C:\\Users\\Pro\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.6\\microsoft.entityframeworkcore.abstractions.10.0.6.nupkg.sha512",
     "C:\\Users\\Pro\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.6\\microsoft.entityframeworkcore.analyzers.10.0.6.nupkg.sha512",
     "C:\\Users\\Pro\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\10.0.6\\microsoft.entityframeworkcore.inmemory.10.0.6.nupkg.sha512",
-    "C:\\Users\\Pro\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\10.0.4\\microsoft.entityframeworkcore.relational.10.0.4.nupkg.sha512",
+    "C:\\Users\\Pro\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\10.0.6\\microsoft.entityframeworkcore.relational.10.0.6.nupkg.sha512",
     "C:\\Users\\Pro\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Pro\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\10.0.6\\microsoft.extensions.caching.abstractions.10.0.6.nupkg.sha512",
     "C:\\Users\\Pro\\.nuget\\packages\\microsoft.extensions.caching.memory\\10.0.6\\microsoft.extensions.caching.memory.10.0.6.nupkg.sha512",

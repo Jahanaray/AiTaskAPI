@@ -106,11 +106,14 @@ npm run dev
 ### Option B: Docker Compose (All-in-One)
 
 ```bash
-# 1. Set JWT secret
-$env:JWT_SECRET="your-super-secret-jwt-key-minimum-32-chars-long"
+# 1. Create local Docker settings
+cp .env.example .env
 
-# 2. Start all services
-docker-compose up --build
+# 2. Edit .env if needed
+# LLM_SERVER defaults to http://host.docker.internal:11434 for Ollama on the Docker host.
+
+# 3. Start all services
+docker compose up --build
 ```
 
 **Endpoints:**
