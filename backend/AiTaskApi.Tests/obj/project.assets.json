@@ -3777,11 +3777,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi.Tests\\AiTaskApi.Tests.csproj",
+      "projectUniqueName": "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi.Tests\\AiTaskApi.Tests.csproj",
       "projectName": "AiTaskApi.Tests",
-      "projectPath": "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi.Tests\\AiTaskApi.Tests.csproj",
+      "projectPath": "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi.Tests\\AiTaskApi.Tests.csproj",
       "packagesPath": "C:\\Users\\Pro\\.nuget\\packages\\",
-      "outputPath": "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi.Tests\\obj\\",
+      "outputPath": "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3804,8 +3804,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi\\AiTaskApi.csproj": {
-              "projectPath": "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi\\AiTaskApi.csproj"
+            "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi\\AiTaskApi.csproj": {
+              "projectPath": "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi\\AiTaskApi.csproj"
             }
           }
         }
@@ -4149,13 +4149,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi.Tests\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
-    }
-  ]
+  }
 }

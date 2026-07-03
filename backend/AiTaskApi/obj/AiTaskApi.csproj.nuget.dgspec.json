@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi\\AiTaskApi.csproj": {}
+    "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi\\AiTaskApi.csproj": {}
   },
   "projects": {
-    "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi.Shared\\AiTaskApi.Shared.csproj": {
+    "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi.Shared\\AiTaskApi.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi.Shared\\AiTaskApi.Shared.csproj",
+        "projectUniqueName": "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi.Shared\\AiTaskApi.Shared.csproj",
         "projectName": "AiTaskApi.Shared",
-        "projectPath": "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi.Shared\\AiTaskApi.Shared.csproj",
+        "projectPath": "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi.Shared\\AiTaskApi.Shared.csproj",
         "packagesPath": "C:\\Users\\Pro\\.nuget\\packages\\",
-        "outputPath": "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi.Shared\\obj\\",
+        "outputPath": "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -346,14 +346,14 @@
         }
       }
     },
-    "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi\\AiTaskApi.csproj": {
+    "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi\\AiTaskApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi\\AiTaskApi.csproj",
+        "projectUniqueName": "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi\\AiTaskApi.csproj",
         "projectName": "AiTaskApi",
-        "projectPath": "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi\\AiTaskApi.csproj",
+        "projectPath": "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi\\AiTaskApi.csproj",
         "packagesPath": "C:\\Users\\Pro\\.nuget\\packages\\",
-        "outputPath": "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi\\obj\\",
+        "outputPath": "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -376,8 +376,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi.Shared\\AiTaskApi.Shared.csproj": {
-                "projectPath": "D:\\Playground\\AiTaskApi -   AI\\backend\\AiTaskApi.Shared\\AiTaskApi.Shared.csproj"
+              "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi.Shared\\AiTaskApi.Shared.csproj": {
+                "projectPath": "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi.Shared\\AiTaskApi.Shared.csproj"
               }
             }
           }

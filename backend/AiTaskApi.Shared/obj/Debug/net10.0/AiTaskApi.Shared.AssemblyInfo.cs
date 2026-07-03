@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AiTaskApi.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c3b0f009ba4b0a8dbe1553a5e810c9457c6545a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+18b957c7c9c5f5975d9e0dbac2a59fdb11fc3df6")]
 [assembly: System.Reflection.AssemblyProductAttribute("AiTaskApi.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AiTaskApi.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
