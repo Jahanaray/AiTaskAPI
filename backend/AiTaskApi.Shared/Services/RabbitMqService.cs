@@ -1,8 +1,9 @@
-﻿using System;
+﻿using RabbitMQ.Client;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Channels;
-using RabbitMQ.Client;
 
 namespace AiTaskApi.Shared.Services
 {
@@ -15,7 +16,7 @@ namespace AiTaskApi.Shared.Services
         {
             var factory = new ConnectionFactory
             {
-                HostName = "localhost"
+                HostName = Environment.GetEnvironmentVariable("RABBITMQ_HOST") ?? "rabbitmq"
             };
 
             _connection = factory.CreateConnectionAsync().GetAwaiter().GetResult();
@@ -35,6 +36,20 @@ namespace AiTaskApi.Shared.Services
         {
 
         }
+
+        public async Task PublishAsync<T>(string queue, T message)
+        {
+            var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
+
+            await _channel.BasicPublishAsync(
+                exchange: "",
+                routingKey: queue,
+                mandatory: false,
+                body: body);
+        }
+
+
+
     }
 
 

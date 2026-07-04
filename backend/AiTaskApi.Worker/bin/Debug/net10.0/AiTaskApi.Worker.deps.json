@@ -658,6 +658,9 @@
         }
       },
       "AiTaskApi.Shared/1.0.0": {
+        "dependencies": {
+          "RabbitMQ.Client": "7.2.1"
+        },
         "runtime": {
           "AiTaskApi.Shared.dll": {
             "assemblyVersion": "1.0.0.0",

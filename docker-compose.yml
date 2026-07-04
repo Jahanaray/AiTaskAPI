@@ -34,7 +34,10 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      rabbitmq:
+        condition: service_started
     environment:
+      RABBITMQ_HOST: rabbitmq
       ConnectionStrings__Default: Host=db;Port=5432;Database=${DB_NAME:-taskdb};Username=${DB_USER:-postgres};Password=${DB_PASSWORD:-changeme}
       JWT_SECRET: ${JWT_SECRET:-change-me-jwt-secret}
       LLM_SERVER: ${LLM_SERVER:-http://host.docker.internal:11434}
@@ -53,7 +56,10 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      rabbitmq:
+        condition: service_started
     environment:
+      RABBITMQ_HOST: rabbitmq
       ConnectionStrings__Default: Host=db;Port=5432;Database=${DB_NAME:-taskdb};Username=${DB_USER:-postgres};Password=${DB_PASSWORD:-changeme}
       JWT_SECRET: ${JWT_SECRET:-change-me-jwt-secret}
       LLM_SERVER: ${LLM_SERVER:-http://host.docker.internal:11434}

@@ -2,6 +2,7 @@
 using AiTaskApi.Models;
 using AiTaskApi.Services;
 using AiTaskApi.Shared.Models.Agent;
+using AiTaskApi.Shared.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,12 +13,14 @@ public class AiController : ControllerBase
     private readonly AiService _ai;
     private readonly AppDbContext _context;
     private readonly AgentService _agent;
+    private readonly RabbitMqService _rabbit;
 
-    public AiController(AiService ai, AppDbContext context, AgentService agent)
+    public AiController(AiService ai, AppDbContext context, AgentService agent, RabbitMqService rabbit)
     {
         _ai = ai;
         _context = context;
         _agent = agent;
+        _rabbit = rabbit;
     }
 
     // -----------------------------
@@ -49,6 +52,7 @@ public class AiController : ControllerBase
 
         _context.AgentJobs.Add(job);
         await _context.SaveChangesAsync();
+        await _rabbit.PublishAsync("agent-jobs", job.Id);
 
         return Accepted(new
         {

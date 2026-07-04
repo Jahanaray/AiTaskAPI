@@ -28,3 +28,5 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 ENTRYPOINT ["dotnet", "AiTaskApi.dll"]
+
+

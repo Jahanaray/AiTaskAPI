@@ -24,3 +24,5 @@ RUN apt-get update \
 COPY --from=build /app/publish .
 
 ENTRYPOINT ["dotnet", "AiTaskApi.Worker.dll"]
+
+

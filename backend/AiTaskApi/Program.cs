@@ -1,5 +1,6 @@
 using AiTaskApi.Data;
 using AiTaskApi.Services;
+using AiTaskApi.Shared.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -31,6 +32,8 @@ builder.Services.AddScoped<TaskService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<AgentService>();
 builder.Services.AddScoped<AiService>();
+builder.Services.AddSingleton<RabbitMqService>();
+
 
 //// ----------------------
 //// Worker (IMPORTANT FIX)
