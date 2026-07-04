@@ -10,3 +10,15 @@ D:\Playground\AiTaskApi - AI\backend\AiTaskApi.Shared\obj\Debug\net10.0\AiTaskAp
 D:\Playground\AiTaskApi - AI\backend\AiTaskApi.Shared\obj\Debug\net10.0\refint\AiTaskApi.Shared.dll
 D:\Playground\AiTaskApi - AI\backend\AiTaskApi.Shared\obj\Debug\net10.0\AiTaskApi.Shared.pdb
 D:\Playground\AiTaskApi - AI\backend\AiTaskApi.Shared\obj\Debug\net10.0\ref\AiTaskApi.Shared.dll
+D:\Playground\AiTaskApi-AI\backend\AiTaskApi.Shared\bin\Debug\net10.0\AiTaskApi.Shared.deps.json
+D:\Playground\AiTaskApi-AI\backend\AiTaskApi.Shared\bin\Debug\net10.0\AiTaskApi.Shared.dll
+D:\Playground\AiTaskApi-AI\backend\AiTaskApi.Shared\bin\Debug\net10.0\AiTaskApi.Shared.pdb
+D:\Playground\AiTaskApi-AI\backend\AiTaskApi.Shared\obj\Debug\net10.0\AiTaskApi.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\Playground\AiTaskApi-AI\backend\AiTaskApi.Shared\obj\Debug\net10.0\AiTaskApi.Shared.AssemblyInfoInputs.cache
+D:\Playground\AiTaskApi-AI\backend\AiTaskApi.Shared\obj\Debug\net10.0\AiTaskApi.Shared.AssemblyInfo.cs
+D:\Playground\AiTaskApi-AI\backend\AiTaskApi.Shared\obj\Debug\net10.0\AiTaskApi.Shared.csproj.CoreCompileInputs.cache
+D:\Playground\AiTaskApi-AI\backend\AiTaskApi.Shared\obj\Debug\net10.0\AiTaskApi.Shared.sourcelink.json
+D:\Playground\AiTaskApi-AI\backend\AiTaskApi.Shared\obj\Debug\net10.0\AiTaskApi.Shared.dll
+D:\Playground\AiTaskApi-AI\backend\AiTaskApi.Shared\obj\Debug\net10.0\refint\AiTaskApi.Shared.dll
+D:\Playground\AiTaskApi-AI\backend\AiTaskApi.Shared\obj\Debug\net10.0\AiTaskApi.Shared.pdb
+D:\Playground\AiTaskApi-AI\backend\AiTaskApi.Shared\obj\Debug\net10.0\ref\AiTaskApi.Shared.dll

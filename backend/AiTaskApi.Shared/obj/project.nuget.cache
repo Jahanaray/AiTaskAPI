@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ViQwm4v8j/4=",
+  "dgSpecHash": "9b5C3yv8xio=",
   "success": true,
   "projectFilePath": "D:\\Playground\\AiTaskApi-AI\\backend\\AiTaskApi.Shared\\AiTaskApi.Shared.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Pro\\.nuget\\packages\\rabbitmq.client\\7.2.1\\rabbitmq.client.7.2.1.nupkg.sha512",
+    "C:\\Users\\Pro\\.nuget\\packages\\system.threading.ratelimiting\\8.0.0\\system.threading.ratelimiting.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

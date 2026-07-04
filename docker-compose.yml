@@ -16,7 +16,15 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-
+  
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: task_rabbitmq
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  
   api:
     build:
       context: ./backend
