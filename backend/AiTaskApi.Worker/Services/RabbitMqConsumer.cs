@@ -2,18 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.Json;
-using System.Threading.Channels;
 
-namespace AiTaskApi.Shared.Services
+namespace AiTaskApi.Worker.Services
 {
-    public class RabbitMqService : IRabbitMqService
+    public class RabbitMqConsumer
     {
+        private readonly IServiceScopeFactory _scopeFactory;
         private readonly IConnection _connection;
         private readonly IChannel _channel;
 
-        public RabbitMqService()
+
+        public RabbitMqConsumer(IServiceScopeFactory scopeFactory)
         {
+            _scopeFactory = scopeFactory;
             var factory = new ConnectionFactory
             {
                 HostName = Environment.GetEnvironmentVariable("RABBITMQ_HOST") ?? "rabbitmq"
@@ -32,32 +33,10 @@ namespace AiTaskApi.Shared.Services
                     ).GetAwaiter().GetResult();
         }
 
-        public void Publish(string queueName, string message)
+
+        public async Task StartAsync(CancellationToken token)
         {
-            var body = Encoding.UTF8.GetBytes(message);
-
-            _channel.BasicPublishAsync(
-                exchange: "",
-                routingKey: queueName,
-                body: body).GetAwaiter().GetResult();
         }
-
-
-
-        public async Task PublishAsync<T>(string queue, T message)
-        {
-            var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
-
-            await _channel.BasicPublishAsync(
-                exchange: "",
-                routingKey: queue,
-                mandatory: false,
-                body: body);
-        }
-
-
 
     }
-
-
 }

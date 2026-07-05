@@ -172,9 +172,9 @@ public class AiController : ControllerBase
             MaxAttempts = 4
         };
 
-        _context.AgentJobs.Add(job);
-        await _context.SaveChangesAsync();
-
+        //_context.AgentJobs.Add(job);
+        //await _context.SaveChangesAsync();
+        await _rabbit.PublishAsync("agent-jobs", job);
         return Ok(new { jobId = job.Id });
     }
 

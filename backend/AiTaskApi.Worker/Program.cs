@@ -1,6 +1,7 @@
 using AiTaskApi.Data;
 using AiTaskApi.Services;
 using AiTaskApi.Shared.Services;
+using AiTaskApi.Worker.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = Host.CreateApplicationBuilder(args);
@@ -21,7 +22,8 @@ builder.Services.AddHttpClient<AiService>(client =>
 {
     client.Timeout = TimeSpan.FromMinutes(10);
 });
-builder.Services.AddSingleton<RabbitMqService>();
+builder.Services.AddSingleton<IRabbitMqService, RabbitMqService>();
+builder.Services.AddSingleton<RabbitMqConsumer>();
 
 // worker
 builder.Services.AddHostedService<Worker>();

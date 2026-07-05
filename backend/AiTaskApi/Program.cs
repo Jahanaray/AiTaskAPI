@@ -32,7 +32,7 @@ builder.Services.AddScoped<TaskService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<AgentService>();
 builder.Services.AddScoped<AiService>();
-builder.Services.AddSingleton<RabbitMqService>();
+builder.Services.AddSingleton<IRabbitMqService, RabbitMqService>();
 
 
 //// ----------------------
