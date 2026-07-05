@@ -22,6 +22,8 @@ builder.Services.AddHttpClient<AiService>(client =>
 {
     client.Timeout = TimeSpan.FromMinutes(10);
 });
+
+builder.Services.AddScoped<JobProcessorService>();
 builder.Services.AddSingleton<IRabbitMqService, RabbitMqService>();
 builder.Services.AddSingleton<RabbitMqConsumer>();
 

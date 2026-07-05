@@ -1,7 +1,10 @@
-﻿using RabbitMQ.Client;
+﻿using AiTaskApi.Shared.Models.Agent;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
 
 namespace AiTaskApi.Worker.Services
 {
@@ -36,6 +39,40 @@ namespace AiTaskApi.Worker.Services
 
         public async Task StartAsync(CancellationToken token)
         {
+            var consumer = new AsyncEventingBasicConsumer(_channel);
+
+            consumer.ReceivedAsync += async (sender, ea) =>
+            {
+                var json = Encoding.UTF8.GetString(ea.Body.ToArray());
+
+                var job = JsonSerializer.Deserialize<AgentJob>(json);
+
+                if (job == null)
+                {
+                    await _channel.BasicNackAsync(
+                        ea.DeliveryTag,
+                        multiple: false,
+                        requeue: false);
+
+                    return;
+                }
+
+                using var scope = _scopeFactory.CreateScope();
+
+                var processor = scope.ServiceProvider.GetRequiredService<JobProcessorService>();
+
+                await processor.RunJob(job, token);
+
+                await _channel.BasicAckAsync(
+                    ea.DeliveryTag,
+                    multiple: false);
+            };
+
+            await _channel.BasicConsumeAsync(
+                queue: "agent-jobs",
+                autoAck: false,
+                consumer: consumer,
+                cancellationToken: token);
         }
 
     }
