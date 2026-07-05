@@ -174,7 +174,8 @@ public class AiController : ControllerBase
 
         //_context.AgentJobs.Add(job);
         //await _context.SaveChangesAsync();
-        await _rabbit.PublishAsync("agent-jobs", job);
+        //await _rabbit.PublishAsync("agent-jobs", job);
+        await _rabbit.PublishAsync("agent-jobs", job.Id);
         return Ok(new { jobId = job.Id });
     }
 

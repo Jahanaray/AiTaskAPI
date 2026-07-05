@@ -23,10 +23,14 @@ namespace AiTaskApi.Worker.Services
         // =========================
         // JOB EXECUTION
         // =========================
-        public async Task RunJob(
-            AgentJob job,
-            CancellationToken token)
+        public async Task RunJob(int jobId, CancellationToken token)
         {
+            var job = await _db.AgentJobs.FindAsync(new object[] { jobId }, token);
+
+            if (job == null)
+                return;
+
+
             job.Status = "Running";
             job.AttemptCount += 1;
             job.LastError = null;

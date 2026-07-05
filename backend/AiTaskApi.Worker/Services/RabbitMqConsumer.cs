@@ -45,9 +45,10 @@ namespace AiTaskApi.Worker.Services
             {
                 var json = Encoding.UTF8.GetString(ea.Body.ToArray());
 
-                var job = JsonSerializer.Deserialize<AgentJob>(json);
+                var jobId = JsonSerializer.Deserialize<int>(json);
+                //var job = JsonSerializer.Deserialize<AgentJob>(json);
 
-                if (job == null)
+                if (jobId == null)
                 {
                     await _channel.BasicNackAsync(
                         ea.DeliveryTag,
@@ -61,8 +62,9 @@ namespace AiTaskApi.Worker.Services
 
                 var processor = scope.ServiceProvider.GetRequiredService<JobProcessorService>();
 
-                await processor.RunJob(job, token);
-
+                await processor.RunJob(jobId, token);
+                //await processor.RunJob(job, token);
+                
                 await _channel.BasicAckAsync(
                     ea.DeliveryTag,
                     multiple: false);
